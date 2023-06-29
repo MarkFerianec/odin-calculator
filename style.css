@@ -1,0 +1,61 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+}
+
+.calculatorContainer {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 400px;
+    background-color: lightgray;
+}
+
+.display {
+    height: 100px;
+}
+
+.clear {
+    height: 50px;
+}
+
+.firstRowOfButtons {
+    display: flex;
+    flex: 1;
+}
+
+.one,
+.two,
+.three,
+.plus,
+.four,
+.five,
+.six,
+.minus,
+.seven,
+.eight,
+.nine,
+.multiply,
+.zero,
+.decimal,
+.equals,
+.divide {
+    flex: 1;
+}
+
+.secondRowOfButtons {
+    display: flex;
+    flex: 1;
+}
+
+.thirdRowOfButtons {
+    display: flex;
+    flex: 1;
+}
+
+.fourthRowOfButtons {
+    display: flex;
+    flex: 1;
+}
