@@ -302,6 +302,24 @@ function multiplication() {
     }
 }
 
+divide.addEventListener('click', division);
+//added || firstNumber == 0 to this function if statement.
+function division() {
+    operator = 'divide';
+    if (typeof (firstNumber) == 'undefined' || firstNumber == 0) {
+        firstNumber = Number(displayValue);
+        console.log("first number is " + firstNumber);
+        buttonToggled = true;
+        if (typeof (secondNumber) == 'number') {
+            firstNumber = firstNumber + secondNumber;
+        }
+    }
+    else {
+        firstNumber = firstNumber + secondNumber;
+        buttonToggled = true;
+    }
+}
+
 equals.addEventListener('click', compute);
 
 function compute() {
@@ -317,19 +335,30 @@ function compute() {
         firstNumber = firstNumber + secondNumber;
         // display.textContent = firstNumber + secondNumber; //old code
         display.textContent = firstNumber;
-        operate(operator, firstNumber, secondNumber);
+        // operate(operator, firstNumber, secondNumber);
     }
 
     if (operator == 'subtract') {
         firstNumber = firstNumber - secondNumber;
         display.textContent = firstNumber;
-        operate(operator, firstNumber, secondNumber);
+        // operate(operator, firstNumber, secondNumber);
     }
 
     if (operator == 'multiply') {
         firstNumber = firstNumber * secondNumber;
         display.textContent = firstNumber;
-        operate(operator, firstNumber, secondNumber);
+        // operate(operator, firstNumber, secondNumber);
+    }
+
+    if (operator == 'divide') {
+        if (secondNumber == 0) {
+            display.textContent = 'Cannot divide by 0';
+        }
+        else {
+            firstNumber = firstNumber / secondNumber;
+            display.textContent = firstNumber;
+            // operate(operator, firstNumber, secondNumber);
+        }
     }
 
     secondNumber = 0;
