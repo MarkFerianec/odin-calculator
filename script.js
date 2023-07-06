@@ -1,17 +1,31 @@
 function addNumbers(a, b) {
-    return a + b;
+    firstNumber = firstNumber + secondNumber;
+    a = a + b;
+    display.textContent = a;
 }
 
 function subtractNumbers(a, b) {
-    return a - b;
+    firstNumber = firstNumber - secondNumber;
+    a = a - b;
+    display.textContent = a;
+
 }
 
 function multiplyNumbers(a, b) {
-    return a * b;
+    firstNumber = firstNumber * secondNumber;
+    a = a * b;
+    display.textContent = a;
 }
 
 function divideNumbers(a, b) {
-    return a / b;
+    if (b == 0) {
+        display.textContent = 'Cannot divide by 0';
+    }
+    else {
+        firstNumber = firstNumber / secondNumber;
+        a = a / b;
+        display.textContent = a;
+    }
 }
 
 let firstNumber;
@@ -254,7 +268,6 @@ function add() {
     if (typeof (firstNumber) == 'undefined' || firstNumber == 0) {
         firstNumber = Number(displayValue);
         console.log("first number is " + firstNumber);
-        // operator = 'add'; //commented this out and added it above if statement.
         buttonToggled = true;
         if (typeof (secondNumber) == 'number') {
             firstNumber = firstNumber + secondNumber;
@@ -267,7 +280,6 @@ function add() {
 }
 
 minus.addEventListener('click', subtract);
-//added || firstNumber == 0 to this function if statement.
 function subtract() {
     operator = 'subtract';
     if (typeof (firstNumber) == 'undefined' || firstNumber == 0) {
@@ -285,7 +297,6 @@ function subtract() {
 }
 
 multiply.addEventListener('click', multiplication);
-//added || firstNumber == 0 to this function if statement.
 function multiplication() {
     operator = 'multiply';
     if (typeof (firstNumber) == 'undefined' || firstNumber == 0) {
@@ -303,7 +314,6 @@ function multiplication() {
 }
 
 divide.addEventListener('click', division);
-//added || firstNumber == 0 to this function if statement.
 function division() {
     operator = 'divide';
     if (typeof (firstNumber) == 'undefined' || firstNumber == 0) {
@@ -327,39 +337,7 @@ function compute() {
 
     console.log("second number is " + secondNumber);
 
-    // console.log("total is " + (firstNumber + secondNumber)); //needs to be modified
-    // display.textContent = firstNumber + secondNumber; //needs to be modified
-    // firstNumber = firstNumber + secondNumber; //needs to be modified
-
-    if (operator == 'add') {
-        firstNumber = firstNumber + secondNumber;
-        // display.textContent = firstNumber + secondNumber; //old code
-        display.textContent = firstNumber;
-        // operate(operator, firstNumber, secondNumber);
-    }
-
-    if (operator == 'subtract') {
-        firstNumber = firstNumber - secondNumber;
-        display.textContent = firstNumber;
-        // operate(operator, firstNumber, secondNumber);
-    }
-
-    if (operator == 'multiply') {
-        firstNumber = firstNumber * secondNumber;
-        display.textContent = firstNumber;
-        // operate(operator, firstNumber, secondNumber);
-    }
-
-    if (operator == 'divide') {
-        if (secondNumber == 0) {
-            display.textContent = 'Cannot divide by 0';
-        }
-        else {
-            firstNumber = firstNumber / secondNumber;
-            display.textContent = firstNumber;
-            // operate(operator, firstNumber, secondNumber);
-        }
-    }
+    operate(operator, firstNumber, secondNumber);
 
     secondNumber = 0;
 }
