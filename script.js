@@ -158,6 +158,15 @@ two.addEventListener('click', () => {
         display.textContent = '';
         buttonToggled = false;
     }
+
+    if (display.textContent != displayValue) {
+        firstNumber = 0;
+        displayValue = '';
+        display.textContent = '';
+        // buttonToggled = false; //may not be neccessary line of code?
+    } //display.textContent > 0 &&  // was in if statement between parantheses previously.
+    // it may and probably is unnecessary.
+
     display.append(2);
     displayValue += '2';
 });
@@ -168,6 +177,15 @@ three.addEventListener('click', () => {
         display.textContent = '';
         buttonToggled = false;
     }
+
+    if (display.textContent != displayValue) {
+        firstNumber = 0;
+        displayValue = '';
+        display.textContent = '';
+        // buttonToggled = false; //may not be neccessary line of code?
+    } //display.textContent > 0 &&  // was in if statement between parantheses previously.
+    // it may and probably is unnecessary.
+
     display.append(3);
     displayValue += '3';
 });
@@ -178,6 +196,15 @@ four.addEventListener('click', () => {
         display.textContent = '';
         buttonToggled = false;
     }
+
+    if (display.textContent != displayValue) {
+        firstNumber = 0;
+        displayValue = '';
+        display.textContent = '';
+        // buttonToggled = false; //may not be neccessary line of code?
+    } //display.textContent > 0 &&  // was in if statement between parantheses previously.
+    // it may and probably is unnecessary.
+
     display.append(4);
     displayValue += '4';
 });
@@ -188,6 +215,15 @@ five.addEventListener('click', () => {
         display.textContent = '';
         buttonToggled = false;
     }
+
+    if (display.textContent != displayValue) {
+        firstNumber = 0;
+        displayValue = '';
+        display.textContent = '';
+        // buttonToggled = false; //may not be neccessary line of code?
+    } //display.textContent > 0 &&  // was in if statement between parantheses previously.
+    // it may and probably is unnecessary.
+
     display.append(5);
     displayValue += '5';
 });
@@ -198,6 +234,15 @@ six.addEventListener('click', () => {
         display.textContent = '';
         buttonToggled = false;
     }
+
+    if (display.textContent != displayValue) {
+        firstNumber = 0;
+        displayValue = '';
+        display.textContent = '';
+        // buttonToggled = false; //may not be neccessary line of code?
+    } //display.textContent > 0 &&  // was in if statement between parantheses previously.
+    // it may and probably is unnecessary.
+
     display.append(6);
     displayValue += '6';
 });
@@ -208,6 +253,15 @@ seven.addEventListener('click', () => {
         display.textContent = '';
         buttonToggled = false;
     }
+
+    if (display.textContent != displayValue) {
+        firstNumber = 0;
+        displayValue = '';
+        display.textContent = '';
+        // buttonToggled = false; //may not be neccessary line of code?
+    } //display.textContent > 0 &&  // was in if statement between parantheses previously.
+    // it may and probably is unnecessary.
+
     display.append(7);
     displayValue += '7';
 });
@@ -218,6 +272,15 @@ eight.addEventListener('click', () => {
         display.textContent = '';
         buttonToggled = false;
     }
+
+    if (display.textContent != displayValue) {
+        firstNumber = 0;
+        displayValue = '';
+        display.textContent = '';
+        // buttonToggled = false; //may not be neccessary line of code?
+    } //display.textContent > 0 &&  // was in if statement between parantheses previously.
+    // it may and probably is unnecessary.
+
     display.append(8);
     displayValue += '8';
 });
@@ -228,6 +291,15 @@ nine.addEventListener('click', () => {
         display.textContent = '';
         buttonToggled = false;
     }
+
+    if (display.textContent != displayValue) {
+        firstNumber = 0;
+        displayValue = '';
+        display.textContent = '';
+        // buttonToggled = false; //may not be neccessary line of code?
+    } //display.textContent > 0 &&  // was in if statement between parantheses previously.
+    // it may and probably is unnecessary.
+
     display.append(9);
     displayValue += '9';
 });
@@ -238,6 +310,15 @@ zero.addEventListener('click', () => {
         display.textContent = '';
         buttonToggled = false;
     }
+
+    if (display.textContent != displayValue) {
+        firstNumber = 0;
+        displayValue = '';
+        display.textContent = '';
+        // buttonToggled = false; //may not be neccessary line of code?
+    } //display.textContent > 0 &&  // was in if statement between parantheses previously.
+    // it may and probably is unnecessary.
+
     display.append(0);
     displayValue += '0';
 });
