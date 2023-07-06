@@ -1,10 +1,8 @@
 function addNumbers(a, b) {
-    console.log(a + b);
     return a + b;
 }
 
 function subtractNumbers(a, b) {
-    console.log(a - b);
     return a - b;
 }
 
@@ -286,6 +284,24 @@ function subtract() {
     }
 }
 
+multiply.addEventListener('click', multiplication);
+//added || firstNumber == 0 to this function if statement.
+function multiplication() {
+    operator = 'multiply';
+    if (typeof (firstNumber) == 'undefined' || firstNumber == 0) {
+        firstNumber = Number(displayValue);
+        console.log("first number is " + firstNumber);
+        buttonToggled = true;
+        if (typeof (secondNumber) == 'number') {
+            firstNumber = firstNumber + secondNumber;
+        }
+    }
+    else {
+        firstNumber = firstNumber + secondNumber;
+        buttonToggled = true;
+    }
+}
+
 equals.addEventListener('click', compute);
 
 function compute() {
@@ -306,6 +322,12 @@ function compute() {
 
     if (operator == 'subtract') {
         firstNumber = firstNumber - secondNumber;
+        display.textContent = firstNumber;
+        operate(operator, firstNumber, secondNumber);
+    }
+
+    if (operator == 'multiply') {
+        firstNumber = firstNumber * secondNumber;
         display.textContent = firstNumber;
         operate(operator, firstNumber, secondNumber);
     }
