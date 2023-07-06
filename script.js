@@ -4,6 +4,7 @@ function addNumbers(a, b) {
 }
 
 function subtractNumbers(a, b) {
+    console.log(a - b);
     return a - b;
 }
 
@@ -70,84 +71,6 @@ one.addEventListener('click', () => {
         // buttonToggled = false; //may not be neccessary line of code?
     } //display.textContent > 0 &&  // was in if statement between parantheses previously.
     // it may and probably is unnecessary.
-
-    // if (display.textContent > 0
-    //     && display.textContent != 1
-    //     && display.textContent != 11
-    //     && display.textContent != 111) {
-    //     firstNumber = 0;
-    //     displayValue = '';
-    //     display.textContent = '';
-    //     // buttonToggled = false; //may not be neccessary?
-    // } //This almost works too, it is getting closer.
-    //This won't work because if a user calculates a 11 it appends a 1 to it making it 111 :(
-
-    // if (display.textContent > 0) {      
-    //     firstNumber = 0;
-    //     displayValue = '';
-    //     display.textContent = '';
-    //     buttonToggled = false; //may not be neccessary?
-    // }
-    //THIS ALMOST WORKS! It just doesn't allow you to enter more than one 1.
-
-
-
-    // if (buttonToggled == false) { //firstNumber > 0 && 
-    //     firstNumber = 0;
-    //     displayValue = '';
-    //     display.textContent = '';
-    // buttonToggled = false
-    // }
-
-    // else if (buttonToggled == false) {  //these 5 lins of code going down are experimental.
-    //     // firstNumber = 0;
-    //     displayValue = '';
-    //     display.textContent = '';
-    // }
-
-    // display.textContent = '';
-
-    // if (secondNumber == 0) {
-    // firstNumber = 0;
-    // displayValue = '';
-    // display.textContent = '';
-    // buttonToggled = false;
-    // }
-
-    // if (buttonToggled == true) { 
-    //     displayValue = '';
-    //     display.textContent = '';
-    //     buttonToggled = false;
-    // }
-
-    // if (buttonToggled != true) {
-    //     display.append(1);       
-    //     displayValue += '1';
-    //     buttonToggled = false; 
-    // }
-
-    // if (display.textContent = 200) {
-    //     display.textContent = '';
-    //     firstNumber = 0;
-    // }
-
-    // if (displayValue.length > 0) {
-    // firstNumber = Number(displayValue);
-    // firstNumber = 1;
-    // display.textContent = '';
-    // display.append(1);
-    // displayValue += '1';
-    // }
-
-    // if (firstNumber > 0) {
-    //     firstNumber = 0;
-    //     firstNumber = display.textContent;
-    //     display.textContent = '';
-    // }
-
-    // firstNumber = 1;
-    //firstNumber = Number(display.textContent);
-    // display.textContent = '';
 
     display.append(1);       //these 2 lines are important
     displayValue += '1';
@@ -345,6 +268,24 @@ function add() {
     }
 }
 
+minus.addEventListener('click', subtract);
+//added || firstNumber == 0 to this function if statement.
+function subtract() {
+    operator = 'subtract';
+    if (typeof (firstNumber) == 'undefined' || firstNumber == 0) {
+        firstNumber = Number(displayValue);
+        console.log("first number is " + firstNumber);
+        buttonToggled = true;
+        if (typeof (secondNumber) == 'number') {
+            firstNumber = firstNumber + secondNumber;
+        }
+    }
+    else {
+        firstNumber = firstNumber + secondNumber;
+        buttonToggled = true;
+    }
+}
+
 equals.addEventListener('click', compute);
 
 function compute() {
@@ -352,13 +293,19 @@ function compute() {
 
     console.log("second number is " + secondNumber);
 
-    console.log("total is " + (firstNumber + secondNumber)); //needs to be modified
+    // console.log("total is " + (firstNumber + secondNumber)); //needs to be modified
     // display.textContent = firstNumber + secondNumber; //needs to be modified
     // firstNumber = firstNumber + secondNumber; //needs to be modified
 
     if (operator == 'add') {
         firstNumber = firstNumber + secondNumber;
         // display.textContent = firstNumber + secondNumber; //old code
+        display.textContent = firstNumber;
+        operate(operator, firstNumber, secondNumber);
+    }
+
+    if (operator == 'subtract') {
+        firstNumber = firstNumber - secondNumber;
         display.textContent = firstNumber;
         operate(operator, firstNumber, secondNumber);
     }
