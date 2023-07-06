@@ -1,4 +1,5 @@
 function addNumbers(a, b) {
+    console.log(a + b);
     return a + b;
 }
 
@@ -328,10 +329,11 @@ zero.addEventListener('click', () => {
 plus.addEventListener('click', add);
 //added || firstNumber == 0 to this function if statement.
 function add() {
+    operator = 'add';
     if (typeof (firstNumber) == 'undefined' || firstNumber == 0) {
         firstNumber = Number(displayValue);
         console.log("first number is " + firstNumber);
-        operator = 'add';
+        // operator = 'add'; //commented this out and added it above if statement.
         buttonToggled = true;
         if (typeof (secondNumber) == 'number') {
             firstNumber = firstNumber + secondNumber;
@@ -347,10 +349,20 @@ equals.addEventListener('click', compute);
 
 function compute() {
     secondNumber = Number(displayValue);
+
     console.log("second number is " + secondNumber);
-    console.log("total is " + (firstNumber + secondNumber));
-    display.textContent = firstNumber + secondNumber;
-    firstNumber = firstNumber + secondNumber;
+
+    console.log("total is " + (firstNumber + secondNumber)); //needs to be modified
+    // display.textContent = firstNumber + secondNumber; //needs to be modified
+    // firstNumber = firstNumber + secondNumber; //needs to be modified
+
+    if (operator == 'add') {
+        firstNumber = firstNumber + secondNumber;
+        // display.textContent = firstNumber + secondNumber; //old code
+        display.textContent = firstNumber;
+        operate(operator, firstNumber, secondNumber);
+    }
+
     secondNumber = 0;
 }
 
