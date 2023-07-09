@@ -28,10 +28,12 @@ function divideNumbers(a, b) {
     }
 }
 
-let firstNumber;
-let secondNumber;
+let firstNumber = 0;
+let secondNumber = 0;
 let operator;
 let buttonToggled = false;  // may not be necessary
+let newDisplay;
+let buttonToggled2 = false;
 
 function operate(operator, firstNumber, secondNumber) {
 
@@ -86,6 +88,7 @@ one.addEventListener('click', () => {
 
     display.append(1);       //these 2 lines are important
     displayValue += '1';
+    buttonToggled2 = true;
 });
 
 two.addEventListener('click', () => {
@@ -105,6 +108,7 @@ two.addEventListener('click', () => {
 
     display.append(2);
     displayValue += '2';
+    buttonToggled2 = true;
 });
 
 three.addEventListener('click', () => {
@@ -124,6 +128,7 @@ three.addEventListener('click', () => {
 
     display.append(3);
     displayValue += '3';
+    buttonToggled2 = true;
 });
 
 four.addEventListener('click', () => {
@@ -143,6 +148,7 @@ four.addEventListener('click', () => {
 
     display.append(4);
     displayValue += '4';
+    buttonToggled2 = true;
 });
 
 five.addEventListener('click', () => {
@@ -162,6 +168,7 @@ five.addEventListener('click', () => {
 
     display.append(5);
     displayValue += '5';
+    buttonToggled2 = true;
 });
 
 six.addEventListener('click', () => {
@@ -181,6 +188,7 @@ six.addEventListener('click', () => {
 
     display.append(6);
     displayValue += '6';
+    buttonToggled2 = true;
 });
 
 seven.addEventListener('click', () => {
@@ -200,6 +208,7 @@ seven.addEventListener('click', () => {
 
     display.append(7);
     displayValue += '7';
+    buttonToggled2 = true;
 });
 
 eight.addEventListener('click', () => {
@@ -219,6 +228,7 @@ eight.addEventListener('click', () => {
 
     display.append(8);
     displayValue += '8';
+    buttonToggled2 = true;
 });
 
 nine.addEventListener('click', () => {
@@ -238,6 +248,7 @@ nine.addEventListener('click', () => {
 
     display.append(9);
     displayValue += '9';
+    buttonToggled2 = true;
 });
 
 zero.addEventListener('click', () => {
@@ -257,6 +268,7 @@ zero.addEventListener('click', () => {
 
     display.append(0);
     displayValue += '0';
+    buttonToggled2 = true;
 });
 
 //Operator functions
@@ -265,17 +277,40 @@ plus.addEventListener('click', add);
 //added || firstNumber == 0 to this function if statement.
 function add() {
     operator = 'add';
+    //if (typeof (firstNumber) == 'undefined' || firstNumber == 0)
     if (typeof (firstNumber) == 'undefined' || firstNumber == 0) {
         firstNumber = Number(displayValue);
         console.log("first number is " + firstNumber);
         buttonToggled = true;
-        if (typeof (secondNumber) == 'number') {
-            firstNumber = firstNumber + secondNumber;
-        }
+        buttonToggled2 = false;
     }
     else {
-        firstNumber = firstNumber + secondNumber;
+        // firstNumber = firstNumber + secondNumber;
         buttonToggled = true;
+    }
+    //String(firstNumber)
+    if (display.textContent != firstNumber) { //This is wrong because you cannot add identical numbers using add button // Edit. I made it work somehow.
+        newDisplay = firstNumber + Number(display.textContent)
+        console.log('newdisplay is ' + newDisplay);
+        secondNumber = Number(displayValue);
+        console.log('second number is ' + secondNumber);
+        firstNumber = firstNumber + secondNumber;
+        console.log('firstNumber is ' + firstNumber);
+        display.textContent = newDisplay;
+        buttonToggled = true; // may not be necessary
+        buttonToggled2 = false;
+    }
+
+    if (display.textContent == firstNumber && buttonToggled2 == true) {
+        newDisplay = firstNumber + Number(display.textContent)
+        console.log('newdisplay is ' + newDisplay);
+        secondNumber = Number(displayValue);
+        console.log('second number is ' + secondNumber);
+        firstNumber = firstNumber + secondNumber;
+        console.log('firstNumber is ' + firstNumber);
+        display.textContent = newDisplay;
+        buttonToggled = true; // may not be necessary
+        buttonToggled2 = false;
     }
 }
 
@@ -333,13 +368,16 @@ function division() {
 equals.addEventListener('click', compute);
 
 function compute() {
-    secondNumber = Number(displayValue);
-
+    // secondNumber = Number(displayValue);
+    secondNumber = Number(display.textContent);
+    
     console.log("second number is " + secondNumber);
 
     operate(operator, firstNumber, secondNumber);
 
     secondNumber = 0;
+
+    buttonToggled2 = false;
 }
 
 clear.addEventListener('click', clearDisplay);
