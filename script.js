@@ -365,12 +365,8 @@ function multiplication() {
         buttonToggled = true;
         buttonToggled2 = false;
         buttonToggled3 = false; //added
-        // if (typeof (secondNumber) == 'number') {
-        //     firstNumber = firstNumber + secondNumber;
-        // }
     }
     else {
-        // firstNumber = firstNumber + secondNumber;
         buttonToggled = true;
         buttonToggled3 = false; //added
     }
@@ -408,13 +404,37 @@ function division() {
         firstNumber = Number(displayValue);
         console.log("first number is " + firstNumber);
         buttonToggled = true;
-        if (typeof (secondNumber) == 'number') {
-            firstNumber = firstNumber + secondNumber;
-        }
+        buttonToggled2 = false;
+        buttonToggled3 = false; //added
     }
     else {
-        firstNumber = firstNumber + secondNumber;
         buttonToggled = true;
+        buttonToggled3 = false; //added
+    }
+    if (display.textContent != firstNumber) { //This is wrong because you cannot add identical numbers using add button // Edit. I made it work somehow.
+        newDisplay = firstNumber / Number(display.textContent)
+        console.log('newdisplay is ' + newDisplay);
+        secondNumber = Number(displayValue);
+        console.log('second number is ' + secondNumber);
+        firstNumber = firstNumber / secondNumber;
+        console.log('firstNumber is ' + firstNumber);
+        display.textContent = newDisplay;
+        buttonToggled = true; // may not be necessary
+        buttonToggled2 = false;
+        buttonToggled3 = false; //added
+    }
+
+    if (display.textContent == firstNumber && buttonToggled2 == true) {
+        newDisplay = firstNumber / Number(display.textContent)
+        console.log('newdisplay is ' + newDisplay);
+        secondNumber = Number(displayValue);
+        console.log('second number is ' + secondNumber);
+        firstNumber = firstNumber / secondNumber;
+        console.log('firstNumber is ' + firstNumber);
+        display.textContent = newDisplay;
+        buttonToggled = true; // may not be necessary
+        buttonToggled2 = false;
+        buttonToggled3 = false; //added
     }
 }
 
