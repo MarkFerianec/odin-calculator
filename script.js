@@ -286,7 +286,6 @@ function add() {
         buttonToggled3 = false; //added
     }
     else {
-        // firstNumber = firstNumber + secondNumber;
         buttonToggled = true;
         buttonToggled3 = false; //added
     }
@@ -331,19 +330,6 @@ function subtract() {
         buttonToggled = true;
         buttonToggled3 = false; //added
     }
-    //experimental
-    // if (firstNumber == 0 && display.textContent != 0 && buttonToggled2 == false) {
-    //     firstNumber = -Number(display.textContent)
-    //     console.log("first number is " + firstNumber);
-    //     buttonToggled = true;
-    //     buttonToggled2 = false;
-    //     buttonToggled3 = false; //added
-    // }
-    // else {
-    //     buttonToggled = true;
-    //     buttonToggled3 = false; //added
-    // }
-
     if (display.textContent != firstNumber) {
         newDisplay = firstNumber - Number(display.textContent)
         console.log('newdisplay is ' + newDisplay);
@@ -356,7 +342,6 @@ function subtract() {
         buttonToggled2 = false;
         buttonToggled3 = false; //added
     }
-
     if (display.textContent == firstNumber && buttonToggled2 == true) {
         newDisplay = firstNumber - Number(display.textContent)
         console.log('newdisplay is ' + newDisplay);
@@ -378,13 +363,41 @@ function multiplication() {
         firstNumber = Number(displayValue);
         console.log("first number is " + firstNumber);
         buttonToggled = true;
-        if (typeof (secondNumber) == 'number') {
-            firstNumber = firstNumber + secondNumber;
-        }
+        buttonToggled2 = false;
+        buttonToggled3 = false; //added
+        // if (typeof (secondNumber) == 'number') {
+        //     firstNumber = firstNumber + secondNumber;
+        // }
     }
     else {
-        firstNumber = firstNumber + secondNumber;
+        // firstNumber = firstNumber + secondNumber;
         buttonToggled = true;
+        buttonToggled3 = false; //added
+    }
+    if (display.textContent != firstNumber) {
+        newDisplay = firstNumber * Number(display.textContent)
+        console.log('newdisplay is ' + newDisplay);
+        secondNumber = Number(displayValue);
+        console.log('second number is ' + secondNumber);
+        firstNumber = firstNumber * secondNumber;
+        console.log('firstNumber is ' + firstNumber);
+        display.textContent = newDisplay;
+        buttonToggled = true; // may not be necessary
+        buttonToggled2 = false;
+        buttonToggled3 = false; //added
+    }
+
+    if (display.textContent == firstNumber && buttonToggled2 == true) {
+        newDisplay = firstNumber * Number(display.textContent)
+        console.log('newdisplay is ' + newDisplay);
+        secondNumber = Number(displayValue);
+        console.log('second number is ' + secondNumber);
+        firstNumber = firstNumber * secondNumber;
+        console.log('firstNumber is ' + firstNumber);
+        display.textContent = newDisplay;
+        buttonToggled = true; // may not be necessary
+        buttonToggled2 = false;
+        buttonToggled3 = false; //added
     }
 }
 
