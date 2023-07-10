@@ -34,6 +34,7 @@ let operator;
 let buttonToggled = false;  // may not be necessary
 let newDisplay;
 let buttonToggled2 = false;
+let buttonToggled3 = false;
 
 function operate(operator, firstNumber, secondNumber) {
 
@@ -277,18 +278,18 @@ plus.addEventListener('click', add);
 //added || firstNumber == 0 to this function if statement.
 function add() {
     operator = 'add';
-    //if (typeof (firstNumber) == 'undefined' || firstNumber == 0)
     if (typeof (firstNumber) == 'undefined' || firstNumber == 0) {
         firstNumber = Number(displayValue);
         console.log("first number is " + firstNumber);
         buttonToggled = true;
         buttonToggled2 = false;
+        buttonToggled3 = false; //added
     }
     else {
         // firstNumber = firstNumber + secondNumber;
         buttonToggled = true;
+        buttonToggled3 = false; //added
     }
-    //String(firstNumber)
     if (display.textContent != firstNumber) { //This is wrong because you cannot add identical numbers using add button // Edit. I made it work somehow.
         newDisplay = firstNumber + Number(display.textContent)
         console.log('newdisplay is ' + newDisplay);
@@ -299,6 +300,7 @@ function add() {
         display.textContent = newDisplay;
         buttonToggled = true; // may not be necessary
         buttonToggled2 = false;
+        buttonToggled3 = false; //added
     }
 
     if (display.textContent == firstNumber && buttonToggled2 == true) {
@@ -311,6 +313,7 @@ function add() {
         display.textContent = newDisplay;
         buttonToggled = true; // may not be necessary
         buttonToggled2 = false;
+        buttonToggled3 = false; //added
     }
 }
 
@@ -318,16 +321,53 @@ minus.addEventListener('click', subtract);
 function subtract() {
     operator = 'subtract';
     if (typeof (firstNumber) == 'undefined' || firstNumber == 0) {
-        firstNumber = Number(displayValue);
+        firstNumber = Number(displayValue);  //Maybe use display.textContent? //This code is bugged when display is 0.
         console.log("first number is " + firstNumber);
         buttonToggled = true;
-        if (typeof (secondNumber) == 'number') {
-            firstNumber = firstNumber + secondNumber;
-        }
+        buttonToggled2 = false;
+        buttonToggled3 = false; //added
     }
     else {
-        firstNumber = firstNumber + secondNumber;
         buttonToggled = true;
+        buttonToggled3 = false; //added
+    }
+    //experimental
+    // if (firstNumber == 0 && display.textContent != 0 && buttonToggled2 == false) {
+    //     firstNumber = -Number(display.textContent)
+    //     console.log("first number is " + firstNumber);
+    //     buttonToggled = true;
+    //     buttonToggled2 = false;
+    //     buttonToggled3 = false; //added
+    // }
+    // else {
+    //     buttonToggled = true;
+    //     buttonToggled3 = false; //added
+    // }
+
+    if (display.textContent != firstNumber) {
+        newDisplay = firstNumber - Number(display.textContent)
+        console.log('newdisplay is ' + newDisplay);
+        secondNumber = Number(displayValue);
+        console.log('second number is ' + secondNumber);
+        firstNumber = firstNumber - secondNumber;
+        console.log('firstNumber is ' + firstNumber);
+        display.textContent = newDisplay;
+        buttonToggled = true; // may not be necessary
+        buttonToggled2 = false;
+        buttonToggled3 = false; //added
+    }
+
+    if (display.textContent == firstNumber && buttonToggled2 == true) {
+        newDisplay = firstNumber - Number(display.textContent)
+        console.log('newdisplay is ' + newDisplay);
+        secondNumber = Number(displayValue);
+        console.log('second number is ' + secondNumber);
+        firstNumber = firstNumber - secondNumber;
+        console.log('firstNumber is ' + firstNumber);
+        display.textContent = newDisplay;
+        buttonToggled = true; // may not be necessary
+        buttonToggled2 = false;
+        buttonToggled3 = false; //added
     }
 }
 
@@ -368,16 +408,23 @@ function division() {
 equals.addEventListener('click', compute);
 
 function compute() {
-    // secondNumber = Number(displayValue);
-    secondNumber = Number(display.textContent);
-    
-    console.log("second number is " + secondNumber);
+    if (buttonToggled3 == false) {
+        // secondNumber = Number(displayValue);
+        secondNumber = Number(display.textContent);
 
-    operate(operator, firstNumber, secondNumber);
+        console.log("second number is " + secondNumber);
 
-    secondNumber = 0;
+        operate(operator, firstNumber, secondNumber);
 
-    buttonToggled2 = false;
+        secondNumber = 0;
+
+        buttonToggled2 = false;
+
+        buttonToggled3 = true;
+    }
+    else {
+        console.log('do nothing');
+    }
 }
 
 clear.addEventListener('click', clearDisplay);
